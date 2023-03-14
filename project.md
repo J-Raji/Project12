@@ -88,4 +88,4 @@ PRJ-12
 
 `ansible-playbook -i inventory/dev.yml playbooks/site.yaml`
 
-sudo ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/dev.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yml
+sudo ansible-playbook -i /inventory/dev.yml playbooks/site.yml
