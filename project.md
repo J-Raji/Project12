@@ -49,3 +49,4 @@ PRJ-12
 ---
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
+
