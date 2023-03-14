@@ -87,8 +87,24 @@ PRJ-12
 `cd /home/ubuntu/ansible-config-mgt/`
 
 *BLOCKER FOUND*
+Inventory and Playbooks not showing in ansible-config-artifact directory
+
+`ansible all -m ping`
+
+![localhost implicitly not listed](./Images/blocker.png)
+
+** Resolution
+
+[]`sudo apt remove ansible`
+
+[]`sudo apt update`
+
+[]`sudo apt install software-properties-common`
+
+[]`sudo apt-add-repository --yes --update ppa:ansible/ansible`
+
+[]`sudo apt install ansible`
 
 
 sudo apt install imagemagick-6.q16
 
-sudo ansible-playbook -i /inventory/dev.yml playbooks/site.yml
