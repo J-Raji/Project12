@@ -39,3 +39,13 @@ PRJ-12
 ##Step 2 – Refactor Ansible code by importing other playbooks into site.yml
 
 1.create a new file and name it site.yml
+
+2.Create a new folder in root of the repository and name it static-assignments.
+
+3.Move common.yml file into the newly created static-assignments folder
+
+4.Inside site.yml file, import common.yml playbook
+
+---
+- hosts: all
+- import_playbook: ../static-assignments/common.yml
