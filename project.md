@@ -86,6 +86,9 @@ PRJ-12
 
 `cd /home/ubuntu/ansible-config-mgt/`
 
-`ansible-playbook -i inventory/dev.yml playbooks/site.yaml`
+*BLOCKER FOUND*
+
+
+sudo apt install imagemagick-6.q16
 
 sudo ansible-playbook -i /inventory/dev.yml playbooks/site.yml
