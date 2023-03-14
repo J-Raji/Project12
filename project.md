@@ -106,5 +106,6 @@ Inventory and Playbooks not showing in ansible-config-artifact directory
 []`sudo apt install ansible`
 
 
-sudo apt install imagemagick-6.q16
+`sudo ansible-playbook -i inventory/dev.yml playbooks/site.yml`
 
+##Step 3
