@@ -1,7 +1,7 @@
 ## Step 1 Jenkins Job Enhancement
 
 -Webhook
-http://52.67.64.253:8080/github-webhook/
+http://54.207.140.176:8080/github-webhook/
 
 -Branch
 PRJ-12
@@ -18,8 +18,14 @@ PRJ-12
 
 3.Go to Jenkins web console -> Manage Jenkins -> Manage Plugins -> on Available tab search for Copy Artifact and install this plugin without restarting Jenkins
 
-![copy artifact plugins installed](./Images/copy-artifact.png)
+![copy artifact plugins installed](Images/copy-artifact.png)
 
 4.Create a new Freestyle project (you have done it in Project 9) and name it save_artifacts
 
-![copy artifact plugins installed](./Images/copy-artifact.png)
+![save artifact freestyle project created](Images/save-artifact.png)
+
+5.This project will be triggered by completion of your existing ansible project. Configure it accordingly:
+
+![save artifact settings](./Images/save-artifact-setting1.png)
+
+![save artifact settings](./Images/save-artifact-setting2.png)
