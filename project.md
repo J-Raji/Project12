@@ -18,15 +18,15 @@ PRJ-12
 
 3.Go to Jenkins web console -> Manage Jenkins -> Manage Plugins -> on Available tab search for Copy Artifact and install this plugin without restarting Jenkins
 
-![copy artifact plugins installed](./Images/copy-artifact.png)
+![copy artifact plugins installed](Images/copy-artifact.png)
 
 4.Create a new Freestyle project (you have done it in Project 9) and name it save_artifacts
 
-![save artifact freestyle project created](./Images/save-artifact.jpgImages/save-artifact.png)
+![save artifact freestyle project created](Images/save-artifact.jpgImages/save-artifact.png)
 
 5.This project will be triggered by completion of your existing ansible project. Configure it accordingly:
 
-![save artifact settings](./Images/save-artifact-setting1.png)
+![save artifact settings](Images/save-artifact-setting1.png)
 
 6.create a Build step and choose Copy artifacts from other project, specify ansible as a source project and /home/ubuntu/ansible-config-artifact as a target directory.
 
@@ -50,4 +50,42 @@ PRJ-12
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
 
+![Structure for playbooks](./Images/playbooks.png)
+
 5.Run ansible-playbook command against the dev environment
+
+[]create another playbook under static-assignments and name it common-del.yml
+
+---
+- name: update web, nfs and db servers
+  hosts: webservers, nfs, db
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  tasks:
+  - name: delete wireshark
+    yum:
+      name: wireshark
+      state: removed
+
+- name: update LB server
+  hosts: lb
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+  - name: delete wireshark
+    apt:
+      name: wireshark-qt
+      state: absent
+      autoremove: yes
+      purge: yes
+      autoclean: yes
+
+[]update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml and run it against dev servers
+
+`cd /home/ubuntu/ansible-config-mgt/`
+
+`ansible-playbook -i inventory/dev.yml playbooks/site.yaml`
+
+sudo ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/dev.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yml
