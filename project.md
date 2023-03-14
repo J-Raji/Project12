@@ -50,3 +50,4 @@ PRJ-12
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
 
+5.Run ansible-playbook command against the dev environment
