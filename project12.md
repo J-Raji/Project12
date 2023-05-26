@@ -18,23 +18,23 @@ PRJ-12
 
 3.Go to Jenkins web console -> Manage Jenkins -> Manage Plugins -> on Available tab search for Copy Artifact and install this plugin without restarting Jenkins
 
-![copy artifact plugins installed](./Images/copy-artifact.jpg)
+![copy artifact plugins installed](/Images/copy-artifact.png)
 
 4.Create a new Freestyle project (you have done it in Project 9) and name it save_artifacts
 
-![save artifact freestyle project created](./Images/save-artifact.jpgImages/save-artifact.jpg)
+![save artifact freestyle project created](/Images/save-artifact.png)
 
 5.This project will be triggered by completion of your existing ansible project. Configure it accordingly:
 
-![save artifact settings](./Images/save-artifact-setting1.jpg)
+![save artifact settings](/Images/save-artifact-setting1.png)
 
 6.create a Build step and choose Copy artifacts from other project, specify ansible as a source project and /home/ubuntu/ansible-config-artifact as a target directory.
 
-![save artifact settings2](./Images/save-artifact-setting2.jpg)
+![save artifact settings2](/Images/save-artifact-setting2.png)
 
 7.Test your set up by making some change in README.MD file inside your ansible-config-mgt repository (right inside master branch)
 
-![build confirmed](./Images/build.jpg)
+![build confirmed](/Images/build.png)
 
 ##Step 2 – Refactor Ansible code by importing other playbooks into site.yml
 
@@ -50,7 +50,7 @@ PRJ-12
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
 
-![Structure for playbooks](./Images/playbooks.jpg)
+![Structure for playbooks](/Images/playbooks.png)
 
 5.Run ansible-playbook command against the dev environment
 
@@ -93,7 +93,7 @@ Inventory and Playbooks not showing in ansible-config-artifact directory
 
 `ansible all -m ping`
 
-![localhost implicitly not listed](./Images/blocker.jpg)
+![localhost implicitly not listed](/Images/blocker.png)
 
 ** Resolution
 
@@ -214,17 +214,6 @@ roles_path    = /home/ubuntu/ansible-config-mgt/roles
 
 `sudo ansible-playbook -i inventory/uat.yml playbooks/site.yml`
 
-
-[]
+[]View on browser
 web2-uat http://172.31.7.46/index.php
 web1-uat http://172.31.2.253/index.php
-
-Webserver1=SHA256:C3YBErdvbJZPp60FVyoMyi3Brf6RroxHT3ddvxAZcws
-Webserver20SHA256:CGRdfi8yus7eKK5JIIyac/eZ3tMudsxvJU2BNK1fPSw
-NFS=SHA256:p1WqWdocA6TzqtcFpvIVllb7B1zwsb0Kwmv4H2UhGKo
-Nginx LB=SHA256:bSnnStPd8mZ5Aa4CUNuF0Jx8wC0Iz9nzj2EnODCuho8
-Db=SHA256:Hz8bhs3TG1gTxhnijszifQ+4aGOsJH77NrA4jE6hKos
-
-## Step3
-
-[]
